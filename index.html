@@ -531,13 +531,18 @@
 
   <!-- Script principal -->
   <script src="js/main.js" defer></script>
-  <script>
-  const base = "/edukar";
-  document.querySelectorAll("a[href]").forEach(link => {
-    const href = link.getAttribute("href");
-    if (href.startsWith("/") && !href.startsWith(base) && !href.startsWith("//")) {
-      link.setAttribute("href", base + href);
-    }
+<script>
+  window.addEventListener("load", function() {
+    document.querySelectorAll("a[href]").forEach(link => {
+      const href = link.getAttribute("href");
+      if (href.startsWith("https://edukari.github.io/") && 
+          !href.startsWith("https://edukari.github.io/edukar/")) {
+        link.setAttribute("href", href.replace(
+          "https://edukari.github.io/",
+          "https://edukari.github.io/edukar/"
+        ));
+      }
+    });
   });
 </script>
 </body>
