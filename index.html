@@ -531,5 +531,14 @@
 
   <!-- Script principal -->
   <script src="js/main.js" defer></script>
+  <script>
+  const base = "/edukar";
+  document.querySelectorAll("a[href]").forEach(link => {
+    const href = link.getAttribute("href");
+    if (href.startsWith("/") && !href.startsWith(base) && !href.startsWith("//")) {
+      link.setAttribute("href", base + href);
+    }
+  });
+</script>
 </body>
 </html>
